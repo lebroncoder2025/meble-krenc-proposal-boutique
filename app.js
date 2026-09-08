@@ -1,8 +1,4 @@
 document.documentElement.classList.add('js');
-const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('#site-nav');
-if(menu){menu.hidden=false;menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('is-open',open);menu.querySelector('[data-menu-label]').textContent=open?'Zamknij':'Menu';});}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu?.getAttribute('aria-expanded')==='true'){menu.click();menu.focus();}});
-matchMedia('(min-width:701px)').addEventListener('change',e=>{if(e.matches){nav.classList.remove('is-open');menu?.setAttribute('aria-expanded','false');menu?.querySelector('[data-menu-label]').replaceChildren('Menu');}});
 document.querySelectorAll('[data-year]').forEach(e=>e.textContent=new Date().getFullYear());
 const lightbox=document.querySelector('.lightbox'),photo=lightbox?.querySelector('[data-lightbox-image]');
 let current=0,trigger=null;
