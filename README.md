@@ -1,5 +1,13 @@
-# Meble Krenc — boutique studio proposal
+# Meble Krenc — boutique
 
-Osobna propozycja multipager z numerowanymi sekcjami i bocznym systemem nawigacji. Zawiera strony Realizacje, Oferta, Pracownia, Kontakt oraz dokumenty prywatności i cookies.
+Jasny multipager: asymetryczne zdjęcia, układ masonry, subtelna zieleń i podpis z płynną linią inspirowaną referencją klienta.
 
-Uruchom lokalnie, otwierając `index.html`. Wersja produkcyjna jest publikowana przez GitHub Pages.
+Niezależna statyczna propozycja. Oryginalna strona pozostaje w repozytorium meble-krenc-redesign.
+
+Publikacja: https://lebroncoder2025.github.io/meble-krenc-proposal-boutique/
+
+GitHub Pages publikuje gałąź main, katalog główny. Bez zależności i procesu budowania; lokalnie można użyć dowolnego serwera HTTP.
+
+31 fotografii zapisanych lokalnie; źródła i zakres przypisania: [assets/SOURCES.md](assets/SOURCES.md). Logotypy SVG mają tekst zamieniony na krzywe, przezroczyste tło i nie wymagają fontów systemowych.
+
+Weryfikacja: wszystkie podstrony w szerokościach 320, 390, 768, 1024 i 1440 px; menu, galerie, podgląd, ustawienia prywatności oraz linki lokalne. Interakcje sprawdzone w Chrome i Edge na Windows. Brak analityki i reklam; dobrowolny zapis ustawień w localStorage, osobny dla tej propozycji.
