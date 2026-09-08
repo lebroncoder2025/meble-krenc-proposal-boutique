@@ -2,13 +2,13 @@ document.documentElement.classList.add('js');
 const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('#site-nav');
 if(menu){menu.hidden=false;menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('is-open',open);menu.querySelector('[data-menu-label]').textContent=open?'Zamknij':'Menu';});}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu?.getAttribute('aria-expanded')==='true'){menu.click();menu.focus();}});
-matchMedia('(min-width:701px)').addEventListener('change',e=>{if(e.matches){nav.classList.remove('is-open');menu?.setAttribute('aria-expanded','false');}});
+matchMedia('(min-width:701px)').addEventListener('change',e=>{if(e.matches){nav.classList.remove('is-open');menu?.setAttribute('aria-expanded','false');menu?.querySelector('[data-menu-label]').replaceChildren('Menu');}});
 document.querySelectorAll('[data-year]').forEach(e=>e.textContent=new Date().getFullYear());
 const lightbox=document.querySelector('.lightbox'),photo=lightbox?.querySelector('[data-lightbox-image]');
 let current=0,trigger=null;
 const visibleLinks=()=>[...document.querySelectorAll('[data-lightbox]')].filter(e=>!e.closest('[hidden]'));
 function showPhoto(index){const links=visibleLinks();current=(index+links.length)%links.length;const link=links[current];photo.src=link.href;photo.alt=link.querySelector('img').alt;lightbox.querySelector('figcaption').textContent=photo.alt;lightbox.querySelector('[data-lightbox-count]').textContent=(current+1)+' / '+links.length;}
-document.querySelectorAll('[data-lightbox]').forEach(link=>link.addEventListener('click',e=>{if(!lightbox)return;e.preventDefault();trigger=link;showPhoto(visibleLinks().indexOf(link));lightbox.showModal();document.body.classList.add('modal-open');}));
+document.querySelectorAll('[data-lightbox]').forEach(link=>link.addEventListener('click',e=>{if(!lightbox||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();trigger=link;showPhoto(visibleLinks().indexOf(link));lightbox.showModal();document.body.classList.add('modal-open');}));
 lightbox?.querySelector('[data-previous]').addEventListener('click',()=>showPhoto(current-1));
 lightbox?.querySelector('[data-next]').addEventListener('click',()=>showPhoto(current+1));
 document.addEventListener('keydown',e=>{if(lightbox?.open&&e.key==='ArrowLeft')showPhoto(current-1);if(lightbox?.open&&e.key==='ArrowRight')showPhoto(current+1);});
