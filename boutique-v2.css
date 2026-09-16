@@ -96,8 +96,14 @@ body[data-proposal="boutique"] .site-header nav a.is-current{
   min-height:inherit;
   overflow:hidden;
   touch-action:pan-y;
+  cursor:grab;
+  user-select:none;
   outline-offset:-4px;
 }
+
+.hero-carousel.is-dragging .carousel-viewport{cursor:grabbing}
+.hero-carousel.is-dragging .carousel-track{transition:none}
+.carousel-slide>img{-webkit-user-drag:none;pointer-events:none}
 
 .carousel-track{
   display:flex;
@@ -204,7 +210,8 @@ body[data-proposal="boutique"] .site-header nav a.is-current{
   bottom:38px;
   left:var(--boutique-side);
   display:grid;
-  grid-template-columns:auto minmax(120px,220px) auto;
+  grid-template-columns:auto minmax(120px,220px);
+  justify-content:space-between;
   align-items:center;
   gap:24px;
   max-width:calc(1440px - var(--boutique-side) * 2);
@@ -212,8 +219,7 @@ body[data-proposal="boutique"] .site-header nav a.is-current{
 }
 
 .carousel-arrows{display:flex;gap:10px}
-.carousel-button,
-.carousel-toggle{
+.carousel-button{
   width:48px;
   height:48px;
   display:grid;
@@ -227,8 +233,7 @@ body[data-proposal="boutique"] .site-header nav a.is-current{
   transition:background .2s,border-color .2s,transform .2s;
 }
 
-.carousel-button:hover,
-.carousel-toggle:hover{
+.carousel-button:hover{
   background:#fff;
   border-color:#fff;
   color:#252a25;
@@ -264,15 +269,19 @@ body[data-proposal="boutique"] .site-header nav a.is-current{
   animation:carousel-progress 6.5s linear forwards;
 }
 
-.carousel-toggle{justify-self:end}
-.carousel-toggle .play-icon{display:none}
-.carousel-toggle.is-paused .pause-icon{display:none}
-.carousel-toggle.is-paused .play-icon{display:block}
-.pause-icon{display:flex;gap:4px}
-.pause-icon::before,.pause-icon::after{content:"";width:2px;height:14px;background:currentColor}
-.play-icon{width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid currentColor;margin-left:3px}
-
 @keyframes carousel-progress{to{width:100%}}
+
+body[data-proposal="boutique"] .photo-open{
+  opacity:0;
+  transform:translateY(5px);
+  transition:opacity .2s ease,transform .2s ease;
+}
+
+body[data-proposal="boutique"] .photo a:hover .photo-open,
+body[data-proposal="boutique"] .photo a:focus-visible .photo-open{
+  opacity:1;
+  transform:none;
+}
 
 body[data-proposal="boutique"] .studio-summary{
   position:relative;
@@ -458,12 +467,25 @@ body[data-proposal="boutique"] .portfolio-entry .photo img{
     right:20px;
     bottom:24px;
     left:20px;
-    grid-template-columns:auto 1fr auto;
-    gap:14px;
+    display:block;
   }
-  .carousel-arrows{gap:8px}
-  .carousel-button,.carousel-toggle{width:44px;height:44px}
-  .carousel-status{grid-template-columns:18px minmax(58px,1fr) 18px;gap:8px}
+  .carousel-arrows{display:none}
+  .carousel-status{
+    width:min(100%,210px);
+    grid-template-columns:18px minmax(58px,1fr) 18px;
+    gap:8px;
+  }
+  .carousel-link{gap:0}
+  .carousel-link .ui-icon,
+  body[data-proposal="boutique"] .photo-open,
+  body[data-proposal="boutique"] .text-link .ui-icon,
+  body[data-proposal="boutique"] .text-link>span[aria-hidden="true"],
+  body[data-proposal="boutique"] .mk-advice-link .ui-icon,
+  body[data-proposal="boutique"] .phone-link .ui-icon,
+  body[data-proposal="boutique"] .mk-map-links .ui-icon,
+  body[data-proposal="boutique"] .photo-credit .ui-icon{
+    display:none;
+  }
   body[data-proposal="boutique"] .studio-summary::before{display:none}
   body[data-proposal="boutique"] .selected-section{
     margin-right:12px;
@@ -484,9 +506,7 @@ body[data-proposal="boutique"] .portfolio-entry .photo img{
 @media (max-width:410px){
   .carousel-copy h1,.carousel-copy h2{font-size:38px}
   .carousel-copy>p:not(.carousel-kicker){font-size:12px}
-  .carousel-status{display:none}
-  .carousel-controls{grid-template-columns:1fr auto}
-  .carousel-toggle{grid-column:2}
+  .carousel-status{width:170px}
 }
 
 @media (max-width:600px){
