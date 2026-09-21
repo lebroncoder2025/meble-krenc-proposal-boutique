@@ -453,6 +453,14 @@ body[data-proposal="boutique"] .portfolio-entry .photo img{
   object-fit:cover;
 }
 
+body[data-proposal="boutique"] .portfolio-entry--local .photo a{
+  aspect-ratio:4/3;
+}
+
+body[data-proposal="boutique"] .portfolio-entry--local .photo img{
+  height:100%;
+}
+
 @media (max-width:1000px){
   body[data-proposal="boutique"] .site-header .brand img{width:112px;height:84px}
   body[data-proposal="boutique"] .site-header{min-height:102px}
