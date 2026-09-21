@@ -389,6 +389,30 @@ body[data-proposal="boutique"] .footer-bottom{
   margin-left:auto;
 }
 
+body[data-proposal="boutique"] .lightbox button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  line-height:1;
+  vertical-align:middle;
+}
+
+body[data-proposal="boutique"] .lightbox button .ui-icon{
+  width:18px;
+  height:18px;
+  margin:0;
+  vertical-align:0;
+}
+
+body[data-proposal="boutique"] .lightbox-top button{
+  min-height:46px;
+}
+
+body[data-proposal="boutique"] .lightbox-controls{
+  align-items:center;
+}
+
 body[data-proposal="boutique"] .page-intro{
   padding-top:clamp(56px,7vw,96px);
   padding-bottom:clamp(48px,6vw,82px);
