@@ -419,6 +419,24 @@ body[data-proposal="boutique"] .lightbox-controls{
   align-items:center;
 }
 
+body[data-proposal="boutique"] .contact-email{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  margin:16px 0 6px;
+  font-size:clamp(20px,2.4vw,30px);
+  line-height:1.2;
+  overflow-wrap:anywhere;
+}
+
+body[data-proposal="boutique"] .contact-email:hover{
+  color:var(--boutique-sage);
+}
+
+body[data-proposal="boutique"] .footer-top address a[data-contact-email]{
+  overflow-wrap:anywhere;
+}
+
 @media (hover:hover){
   body[data-proposal="boutique"] .lightbox button:hover{
     background:var(--boutique-soft);

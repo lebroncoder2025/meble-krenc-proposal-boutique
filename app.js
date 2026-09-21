@@ -4,6 +4,30 @@ document.querySelectorAll('[data-year]').forEach(element => {
   element.textContent = new Date().getFullYear();
 });
 
+const contactEmail = 'kontakt@meblekrenc.pl';
+
+document.querySelectorAll('.footer-top address').forEach(address => {
+  if (address.querySelector('[data-contact-email]')) return;
+
+  const separator = document.createElement('br');
+  const link = document.createElement('a');
+  link.href = `mailto:${contactEmail}`;
+  link.textContent = contactEmail;
+  link.dataset.contactEmail = '';
+  address.append(separator, link);
+});
+
+const contactEmailBlock = document.querySelector('.contact-details .contact-block:last-child');
+if (contactEmailBlock && !contactEmailBlock.querySelector('[data-contact-email]')) {
+  const heading = contactEmailBlock.querySelector('h2');
+  const link = document.createElement('a');
+  link.className = 'contact-email';
+  link.href = `mailto:${contactEmail}`;
+  link.textContent = contactEmail;
+  link.dataset.contactEmail = '';
+  heading?.after(link);
+}
+
 const lightbox = document.querySelector('.lightbox');
 const lightboxImage = lightbox?.querySelector('[data-lightbox-image]');
 let current = 0;
