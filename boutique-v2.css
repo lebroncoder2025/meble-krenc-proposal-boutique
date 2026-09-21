@@ -419,22 +419,165 @@ body[data-proposal="boutique"] .lightbox-controls{
   align-items:center;
 }
 
-body[data-proposal="boutique"] .contact-email{
-  display:block;
-  width:max-content;
-  max-width:100%;
-  margin:16px 0 6px;
-  font-size:clamp(20px,2.4vw,30px);
-  line-height:1.2;
-  overflow-wrap:anywhere;
+/* Linki prowadzące mają formę przycisków — bez powtarzających się strzałek. */
+body[data-proposal="boutique"] .carousel-link,
+body[data-proposal="boutique"] .text-link,
+body[data-proposal="boutique"] .mk-advice-link{
+  min-height:44px;
+  align-items:center;
+  gap:0;
+  padding:11px 17px;
+  border:1px solid color-mix(in srgb,var(--boutique-sage) 52%,var(--line));
+  border-radius:999px;
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    color .2s ease,
+    transform .2s ease;
 }
 
-body[data-proposal="boutique"] .contact-email:hover{
-  color:var(--boutique-sage);
+body[data-proposal="boutique"] .carousel-link{
+  border-color:#ffffff80;
+}
+
+body[data-proposal="boutique"] .carousel-link .ui-icon,
+body[data-proposal="boutique"] .text-link .ui-icon,
+body[data-proposal="boutique"] .text-link>span[aria-hidden="true"],
+body[data-proposal="boutique"] .mk-advice-link .ui-icon,
+body[data-proposal="boutique"] .mk-map-links .ui-icon,
+body[data-proposal="boutique"] .photo-credit .ui-icon,
+body[data-proposal="boutique"] .photo-open .ui-icon,
+body[data-proposal="boutique"] .phone-link span[aria-hidden="true"]{
+  display:none;
+}
+
+body[data-proposal="boutique"] .photo-open{
+  width:auto;
+  min-width:70px;
+  height:34px;
+  padding:0 12px;
+  border-radius:999px;
+}
+
+body[data-proposal="boutique"] .photo-open::after{
+  content:"Otwórz";
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+body[data-proposal="boutique"] .phone-link{
+  width:max-content;
+  max-width:100%;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 18px;
+  border:1px solid color-mix(in srgb,var(--boutique-sage) 52%,var(--line));
+  border-radius:999px;
+  background:var(--boutique-soft);
+  font-size:clamp(22px,2.8vw,34px);
+  line-height:1;
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    color .2s ease,
+    transform .2s ease;
+}
+
+body[data-proposal="boutique"] .phone-link::after{
+  content:"Zadzwoń";
+  padding-left:12px;
+  border-left:1px solid color-mix(in srgb,var(--boutique-sage) 45%,transparent);
+  font:600 10px/1 Arial,Helvetica,sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+body[data-proposal="boutique"] .footer-top address a[href^="tel:"]{
+  display:inline-flex;
+  margin-top:8px;
+  padding:5px 0;
+  border-bottom:1px solid transparent;
+  font-weight:600;
+  transition:color .2s ease,border-color .2s ease;
 }
 
 body[data-proposal="boutique"] .footer-top address a[data-contact-email]{
+  display:inline-flex;
+  max-width:100%;
+  margin-top:8px;
+  padding:5px 0;
+  border-bottom:1px solid transparent;
+  font-weight:600;
   overflow-wrap:anywhere;
+  transition:color .2s ease,border-color .2s ease;
+}
+
+body[data-proposal="boutique"] .mk-map-links a{
+  display:inline-flex;
+  align-items:center;
+  min-height:42px;
+  padding:10px 15px;
+  border:1px solid var(--consent-line);
+  border-radius:999px;
+  text-decoration:none;
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    color .2s ease,
+    transform .2s ease;
+}
+
+@media (hover:hover){
+  body[data-proposal="boutique"] .carousel-link:hover,
+  body[data-proposal="boutique"] .text-link:hover,
+  body[data-proposal="boutique"] .mk-advice-link:hover,
+  body[data-proposal="boutique"] .mk-map-links a:hover,
+  body[data-proposal="boutique"] .phone-link:hover,
+  body[data-proposal="boutique"] .contact-email:hover{
+    background:var(--boutique-soft);
+    border-color:var(--boutique-sage);
+    box-shadow:0 8px 22px rgba(36,41,37,.11);
+    color:var(--boutique-ink);
+    transform:translateY(-2px);
+  }
+
+  body[data-proposal="boutique"] .carousel-link:hover{
+    background:#fff;
+    color:var(--boutique-ink);
+  }
+
+  body[data-proposal="boutique"] .footer-top address a[href^="tel:"]:hover,
+  body[data-proposal="boutique"] .footer-top address a[data-contact-email]:hover{
+    color:var(--boutique-sage);
+    border-bottom-color:currentColor;
+  }
+}
+
+body[data-proposal="boutique"] .contact-email{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  max-width:100%;
+  margin:16px 0 6px;
+  padding:12px 17px;
+  border:1px solid color-mix(in srgb,var(--boutique-sage) 52%,var(--line));
+  border-radius:999px;
+  background:var(--boutique-soft);
+  font-size:clamp(20px,2.4vw,30px);
+  line-height:1.2;
+  overflow-wrap:anywhere;
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    color .2s ease,
+    transform .2s ease;
 }
 
 @media (hover:hover){
