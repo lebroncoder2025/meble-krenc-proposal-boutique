@@ -396,6 +396,12 @@ body[data-proposal="boutique"] .lightbox button{
   gap:8px;
   line-height:1;
   vertical-align:middle;
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    color .2s ease,
+    transform .2s ease;
 }
 
 body[data-proposal="boutique"] .lightbox button .ui-icon{
@@ -411,6 +417,20 @@ body[data-proposal="boutique"] .lightbox-top button{
 
 body[data-proposal="boutique"] .lightbox-controls{
   align-items:center;
+}
+
+@media (hover:hover){
+  body[data-proposal="boutique"] .lightbox button:hover{
+    background:var(--boutique-soft);
+    border-color:color-mix(in srgb,var(--boutique-sage) 48%,var(--line));
+    box-shadow:0 7px 18px rgba(36,41,37,.10);
+    transform:translateY(-1px);
+  }
+
+  body[data-proposal="boutique"] .lightbox button:active{
+    box-shadow:0 3px 9px rgba(36,41,37,.08);
+    transform:translateY(0);
+  }
 }
 
 body[data-proposal="boutique"] .page-intro{
